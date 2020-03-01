@@ -1,0 +1,14 @@
+{
+    "port": 9000,
+    "proxy": "http://example.com",
+    "handle": [
+        {
+            "url": "/api/example",
+            "method": "POST",
+            "status": 200,
+            "body": {
+                "some": "body"
+            }
+        }
+    ]
+}
