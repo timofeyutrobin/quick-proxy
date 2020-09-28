@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 'use strict';
 
 const express = require('express');
@@ -16,7 +18,7 @@ const usageSections = [
         header: 'Synopsis',
         content: `$ quick-api [{bold -h}] {underline config-file}`
     }
-]
+];
 const usage = commandLineUsage(usageSections);
 
 const { _: args, h: help } = argv;
@@ -49,7 +51,7 @@ Array.isArray(config.handle) && config.handle.forEach(route => {
         route.body ? res.json(route.body) : res.end();
     });
 });
- 
+
 app.use('/', createProxyMiddleware({ target: config.proxy, changeOrigin: true }));
 
 app.listen(config.port, () => {
